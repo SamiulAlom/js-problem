@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Button Click Example</title>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <h1>Button Click Example</h1>
+    <button id="myButton">Click Me</button>
+    <p id="myParagraph">Initial text</p>
+    <script>
+      // Function to handle button click event
+      function handleButtonClick() {
+        var paragraph = document.getElementById("myParagraph");
+        paragraph.textContent = "Button Clicked!";
+      }
+
+      // Add event listener to the button
+      var button = document.getElementById("myButton");
+      button.addEventListener("click", handleButtonClick);
+    </script>
+  </body>
+</html>

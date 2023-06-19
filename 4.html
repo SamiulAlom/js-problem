@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // This is the function that will open a new window
+      // It takes 3 parameters: the url, the width, and the height
+      function openNewWindow(url, width, height) {
+        // Set the width
+        var w = width;
+        // Set the height
+        var h = height;
+        // Set the window features
+        var windowFeatures = "width=" + w + ",height=" + h;
+        // Open the new window
+        window.open(url, "_blank", windowFeatures);
+      }
+      // Create a url variable
+      var u = "https://www.google.com";
+      // Create a width variable
+      var w = 800;
+      // Create a height variable
+      var h = 600;
+
+      // Call the function with the variable values
+      openNewWindow(u, w, h);
+    </script>
+  </body>
+</html>

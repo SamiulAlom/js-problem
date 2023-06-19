@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function sendAjaxGetRequest() {
+        var xhr = new XMLHttpRequest();
+
+        xhr.open("GET", "https://api.example.com/data", true);
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            var response = xhr.responseText;
+            console.log(response); // Handle the response here
+          }
+        };
+
+        xhr.send();
+      }
+
+      // Call the function to send the AJAX GET request
+      sendAjaxGetRequest();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form Validation Example</title>
+  </head>
+  <body>
+    <h1>Form Validation Example</h1>
+    <form id="myForm">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" />
+        <span id="nameError" class="error"></span>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" />
+        <span id="emailError" class="error"></span>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" />
+        <span id="passwordError" class="error"></span>
+      </div>
+      <div>
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" />
+        <span id="confirmPasswordError" class="error"></span>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+    <script>
+      // Function to validate the form
+      function validateForm(event) {
+        // Prevent the form from submitting
+        event.preventDefault();
+
+        // Get values from inputs
+        var nameInput = document.getElementById("name");
+        var emailInput = document.getElementById("email");
+        var passwordInput = document.getElementById("password");
+        var confirmPasswordInput = document.getElementById("confirmPassword");
+
+        // Get error message elements
+        var nameError = document.getElementById("nameError");
+        var emailError = document.getElementById("emailError");
+        var passwordError = document.getElementById("passwordError");
+        var confirmPasswordError = document.getElementById(
+          "confirmPasswordError"
+        );
+
+        // Reset error messages
+        nameError.textContent = "";
+        emailError.textContent = "";
+        passwordError.textContent = "";
+        confirmPasswordError.textContent = "";
+
+        // Validate name
+        if (!nameInput.value || !/^[a-zA-Z]+$/.test(nameInput.value)) {
+          nameError.textContent =
+            "Name should not be empty and should contain only letters.";
+          return;
+        }
+
+        // Validate email
+        if (!/\S+@\S+\.\S+/.test(emailInput.value)) {
+          emailError.textContent = "Invalid email address.";
+          return;
+        }
+
+        // Validate password
+        if (
+          passwordInput.value.length < 8 ||
+          !/[a-z]/.test(passwordInput.value) ||
+          !/[A-Z]/.test(passwordInput.value) ||
+          !/\d/.test(passwordInput.value)
+        ) {
+          passwordError.textContent =
+            "Password should have a minimum length of 8 characters and contain at least one uppercase letter, one lowercase letter, and one digit.";
+          return;
+        }
+
+        // Validate confirm password
+        if (confirmPasswordInput.value !== passwordInput.value) {
+          confirmPasswordError.textContent = "Passwords do not match.";
+          return;
+        }
+
+        // Form is valid, submit the form
+        alert("Form submitted successfully!");
+      }
+
+      // Add event listener to the form
+      var form = document.getElementById("myForm");
+      form.addEventListener("submit", validateForm);
+    </script>
+  </body>
+</html>

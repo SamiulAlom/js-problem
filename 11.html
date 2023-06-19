@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create Element & Append Element Example</title>
+  </head>
+  <body>
+    <h1>Create Element & Append Element Example</h1>
+    <ul id="myList"></ul>
+    <script>
+      // Function to create and append list items to the unordered list
+      function createListItems() {
+        var unorderedList = document.getElementById("myList");
+
+        for (var listItemNumber = 1; listItemNumber <= 5; listItemNumber++) {
+          var listItem = document.createElement("li");
+          listItem.textContent = listItemNumber;
+          unorderedList.appendChild(listItem);
+        }
+      }
+
+      // Call the function to create and append list items
+      createListItems();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function squareRootOfSumOfSquares(numbers) {
+        // Sum the squares of the numbers.
+        var sumOfSquares = numbers.reduce(function (sum, number) {
+          return sum + Math.pow(number, 2);
+        }, 0);
+
+        // Take the square root of the sum of squares.
+        var squareRoot = Math.sqrt(sumOfSquares);
+
+        // Return the result.
+        return squareRoot;
+      }
+
+      // Test the function.
+      var numbers = [1, 2, 3, 4, 5];
+      var result = squareRootOfSumOfSquares(numbers);
+
+      // Log the result.
+      console.log("Square root of the sum of squares:", result);
+    </script>
+  </body>
+</html>

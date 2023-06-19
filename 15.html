@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function sendAjaxPostRequest() {
+        var xhr = new XMLHttpRequest();
+
+        xhr.open("POST", "https://api.example.com/submit", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            var response = xhr.responseText;
+            console.log(response); // Handle the response here
+          }
+        };
+
+        var payload = JSON.stringify({
+          name: "John Doe",
+          email: "johndoe@example.com",
+        });
+
+        xhr.send(payload);
+      }
+
+      // Call the function to send the AJAX POST request
+      sendAjaxPostRequest();
+    </script>
+  </body>
+</html>
